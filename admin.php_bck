@@ -1,0 +1,15 @@
+<?php
+class Evil {
+    public $cmd = 'ls';
+    function __destruct() {
+        system($this->cmd); 
+    }
+}
+
+if (isset($_GET['data'])) {
+    $data = $_GET['data'];
+    $object = unserialize($data);  
+    echo "Deserialized data: " . print_r($object, true);
+}
+?>
+
